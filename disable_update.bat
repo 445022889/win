@@ -1,76 +1,76 @@
-:: æå‰æ³¨é‡Šä¿ç•™é¡¹
+:: ÌáÇ°×¢ÊÍ±£ÁôÏî
 :: https://admx.help/?Category=Windows_10_2016&Policy=Microsoft.Policies.WindowsUpdate::AutoUpdateCfg&Language=zh-cn
 @REM home.php?mod=space&uid=251666 https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-update#update-enableautomaticupgrades
 @REM https://www.howtogeek.com/799392/what-is-waasmedic-agent-exe-how-to-fix-high-disk-usage/
 @REM https://www.majorgeeks.com/content/page/what_is_the_update_orchestrator_service.html
 @REM https://answers.microsoft.com/en-us/windows/forum/all/windows-7-8-81-registry-edits-to-prevent-windows/4cbd4842-d11f-4579-a8de-18576aad2597
 @REM https://greatis.com/stopupdates10/
-@REM æš‚åœæ›´æ–°3000
+@REM ÔİÍ£¸üĞÂ3000
 @REM reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" /v FlightSettingsMaxPauseDays /t reg_dword /d 3000 /f
-@REM æ­¤è®¡ç®—æœºçš„ç›®æ ‡ç»„åç§° 
+@REM ´Ë¼ÆËã»úµÄÄ¿±ê×éÃû³Æ 
 @REM reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "TargetGroup" /t REG_SZ /d "YourTargetGroup" /f
-@REM è¯¥æœåŠ¡ä½¿ç”¨è¿™äº›ä¿¡æ¯æ¥ç¡®å®šåœ¨æ­¤è®¡ç®—æœºä¸Šåº”è¯¥éƒ¨ç½²å“ªäº›æ›´æ–°ã€‚Enabled Value 0 = Disabled, 1 = Enabled
+@REM ¸Ã·şÎñÊ¹ÓÃÕâĞ©ĞÅÏ¢À´È·¶¨ÔÚ´Ë¼ÆËã»úÉÏÓ¦¸Ã²¿ÊğÄÄĞ©¸üĞÂ¡£Enabled Value 0 = Disabled, 1 = Enabled
 @REM reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "TargetGroupEnabled" /t REG_DWORD /d "0x0" /f
-:: -------æŒ‡å®š Intranet Microsoft æ›´æ–°æœåŠ¡ä½ç½®--------
-@REM æ­¤è®¾ç½®å…è®¸ä½ åœ¨ç½‘ç»œä¸ŠæŒ‡å®šä¸€å°æœåŠ¡å™¨æ‰§è¡Œå†…éƒ¨æ›´æ–°æœåŠ¡ã€‚è‡ªåŠ¨æ›´æ–°å®¢æˆ·ç«¯å°†æœç´¢æ­¤æœåŠ¡ï¼Œæ‰¾åˆ°é€‚ç”¨äºç½‘ç»œä¸Šè®¡ç®—æœºçš„æ›´æ–°ã€‚
+:: -------Ö¸¶¨ Intranet Microsoft ¸üĞÂ·şÎñÎ»ÖÃ--------
+@REM ´ËÉèÖÃÔÊĞíÄãÔÚÍøÂçÉÏÖ¸¶¨Ò»Ì¨·şÎñÆ÷Ö´ĞĞÄÚ²¿¸üĞÂ·şÎñ¡£×Ô¶¯¸üĞÂ¿Í»§¶Ë½«ËÑË÷´Ë·şÎñ£¬ÕÒµ½ÊÊÓÃÓÚÍøÂçÉÏ¼ÆËã»úµÄ¸üĞÂ¡£
 @REM Value 0 = Disabled, 1 = Enabled
 @REM reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "UseWUServer" /t REG_DWORD /d "0x1" /f
-@REM æŒ‡å®š Intranet Microsoft ç½‘å€
+@REM Ö¸¶¨ Intranet Microsoft ÍøÖ·
 @REM reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "WUServer" /t REG_SZ /d "http://127.0.0.1" /f
-@REM è®¾ç½® Intranet ç»Ÿè®¡æœåŠ¡å™¨
+@REM ÉèÖÃ Intranet Í³¼Æ·şÎñÆ÷
 @REM reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "WUStatusServer" /t REG_SZ /d "http://127.0.0.1" /f
 :: -------------------------------------------------
-@REM è¯¥æœåŠ¡ä¸»è¦ç”¨äºæ£€æŸ¥ Windows æ›´æ–°çš„å¥åº·çŠ¶å†µï¼Œä»¥ç¡®ä¿ç³»ç»Ÿèƒ½å¤ŸåŠæ—¶æ¥æ”¶åˆ°æœ€æ–°çš„å®‰å…¨å’ŒåŠŸèƒ½æ›´æ–°ã€‚ï¼Œå¹¶å°†å…¶å€¼è®¾ç½®ä¸º 4 (ç¦æ­¢è¿è¡Œè¯¥æœåŠ¡)ã€‚
+@REM ¸Ã·şÎñÖ÷ÒªÓÃÓÚ¼ì²é Windows ¸üĞÂµÄ½¡¿µ×´¿ö£¬ÒÔÈ·±£ÏµÍ³ÄÜ¹»¼°Ê±½ÓÊÕµ½×îĞÂµÄ°²È«ºÍ¹¦ÄÜ¸üĞÂ¡££¬²¢½«ÆäÖµÉèÖÃÎª 4 (½ûÖ¹ÔËĞĞ¸Ã·şÎñ)¡£
 @REM REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WaasMedic" /v "Start" /t REG_DWORD /d 4 /f
-:: æå‰æ³¨é‡Šä¿ç•™é¡¹
-:: å½»åº•å…³é—­Windowsæ›´æ–°
-@REM ä¸´æ—¶åœæ­¢ Windows Update æœåŠ¡
+:: ÌáÇ°×¢ÊÍ±£ÁôÏî
+:: ³¹µ×¹Ø±ÕWindows¸üĞÂ
+@REM ÁÙÊ±Í£Ö¹ Windows Update ·şÎñ
 net stop wuauserv
-@REM æš‚åœå‡çº§ enabled Value 0 = Disabled, 1 = Enabled
+@REM ÔİÍ£Éı¼¶ enabled Value 0 = Disabled, 1 = Enabled
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "PauseDeferrals" /t REG_DWORD /d "0x1" /f
-@REM å…è®¸éç®¡ç†å‘˜æ¥æ”¶æ›´æ–°é€šçŸ¥ Enabled Value 0 = Disabled, 1 = Enabled
+@REM ÔÊĞí·Ç¹ÜÀíÔ±½ÓÊÕ¸üĞÂÍ¨Öª Enabled Value 0 = Disabled, 1 = Enabled
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "ElevateNonAdmins" /t REG_DWORD /d "0x1" /f
-@REM æ­¤è®¾ç½®å…è®¸ä½ åœ¨ç½‘ç»œä¸ŠæŒ‡å®šä¸€å°æœåŠ¡å™¨æ‰§è¡Œå†…éƒ¨æ›´æ–°æœåŠ¡ã€‚è‡ªåŠ¨æ›´æ–°å®¢æˆ·ç«¯å°†æœç´¢æ­¤æœåŠ¡ï¼Œæ‰¾åˆ°é€‚ç”¨äºç½‘ç»œä¸Šè®¡ç®—æœºçš„æ›´æ–°ã€‚
+@REM ´ËÉèÖÃÔÊĞíÄãÔÚÍøÂçÉÏÖ¸¶¨Ò»Ì¨·şÎñÆ÷Ö´ĞĞÄÚ²¿¸üĞÂ·şÎñ¡£×Ô¶¯¸üĞÂ¿Í»§¶Ë½«ËÑË÷´Ë·şÎñ£¬ÕÒµ½ÊÊÓÃÓÚÍøÂçÉÏ¼ÆËã»úµÄ¸üĞÂ¡£
 @REM Value 0 = Disabled, 1 = Enabled
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "UseWUServer" /t REG_DWORD /d "0x1" /f
-@REM æŒ‡å®š Intranet Microsoft ç½‘å€
+@REM Ö¸¶¨ Intranet Microsoft ÍøÖ·
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "WUServer" /t REG_SZ /d "http://127.0.0.1" /f
-@REM è®¾ç½® Intranet ç»Ÿè®¡æœåŠ¡å™¨
+@REM ÉèÖÃ Intranet Í³¼Æ·şÎñÆ÷
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "WUStatusServer" /t REG_SZ /d "http://127.0.0.1" /f
-@REM å¦‚æœå¯ç”¨æ­¤ç­–ç•¥è®¾ç½®ï¼Œåˆ™ä¼šé˜»æ­¢ç”¨æˆ·è¿æ¥åˆ° Windows æ›´æ–°ç½‘ç«™ã€‚ Value 1 =  Enabled, 0 = Disabled
+@REM Èç¹ûÆôÓÃ´Ë²ßÂÔÉèÖÃ£¬Ôò»á×èÖ¹ÓÃ»§Á¬½Óµ½ Windows ¸üĞÂÍøÕ¾¡£ Value 1 =  Enabled, 0 = Disabled
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoWindowsUpdate" /t REG_DWORD /d "0x1" /f
-@REM é…ç½®è‡ªåŠ¨æ›´æ–°  Value 1= Disabled, 0 = Enabled 
+@REM ÅäÖÃ×Ô¶¯¸üĞÂ  Value 1= Disabled, 0 = Enabled 
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoUpdate" /t REG_DWORD /d "0x1" /f
-@REM å…è®¸è‡ªåŠ¨æ›´æ–°ç«‹å³å®‰è£…  Value 1 = Enabledï¼Œ0 = Disabled
+@REM ÔÊĞí×Ô¶¯¸üĞÂÁ¢¼´°²×°  Value 1 = Enabled£¬0 = Disabled
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "AutoInstallMinorUpdates" /t REG_DWORD /d "0x1" /f
-@REM è‡ªåŠ¨æ›´æ–°é¢‘ç‡ Value 0 = Disabled, 1 = Enabled
+@REM ×Ô¶¯¸üĞÂÆµÂÊ Value 0 = Disabled, 1 = Enabled
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "DetectionFrequencyEnabled" /t REG_DWORD /d "0x0" /f
-@REM é‡æ–°è®¡åˆ’è‡ªåŠ¨æ›´æ–°è®¡åˆ’çš„å®‰è£… Value 1 = Enabledï¼Œ0 = Disabled
+@REM ÖØĞÂ¼Æ»®×Ô¶¯¸üĞÂ¼Æ»®µÄ°²×° Value 1 = Enabled£¬0 = Disabled
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "RescheduleWaitTimeEnabled" /t REG_DWORD /d "0x0" /f
-@REM åˆ é™¤ä½¿ç”¨æ‰€æœ‰ Windows æ›´æ–°åŠŸèƒ½çš„è®¿é—®æƒé™ Value 1 = Enabledï¼Œ0 = Disabled
+@REM É¾³ıÊ¹ÓÃËùÓĞ Windows ¸üĞÂ¹¦ÄÜµÄ·ÃÎÊÈ¨ÏŞ Value 1 = Enabled£¬0 = Disabled
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\WindowsUpdate" /v "DisableWindowsUpdateAccess" /t REG_DWORD /d "0x1" /f
-@REM å…³é—­å¯¹æ‰€æœ‰ Windows æ›´æ–°åŠŸèƒ½çš„è®¿é—® Value 1 = Enabledï¼Œ0 = Disabled
+@REM ¹Ø±Õ¶ÔËùÓĞ Windows ¸üĞÂ¹¦ÄÜµÄ·ÃÎÊ Value 1 = Enabled£¬0 = Disabled
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "RescheduleWaitTimeEnabled" /t REG_DWORD /d "0x1" /f
-@REM é˜»æ­¢è¿è¡Œ Windows Anytime Upgradeï¼ˆWindowsç‰ˆæœ¬å‡çº§ï¼‰  Value 1 = Enabledï¼Œ0 = Disabled
+@REM ×èÖ¹ÔËĞĞ Windows Anytime Upgrade£¨Windows°æ±¾Éı¼¶£©  Value 1 = Enabled£¬0 = Disabled
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\WAU" /v "Disabled" /t REG_DWORD /d "0x1" /f
-@REM å…è®¸æˆ–ç¦æ­¢ Microsoft Store å‘æœ€æ–°ç‰ˆæœ¬çš„ Windows æä¾›æ›´æ–°ã€‚ Value 1 = Enabled, 0 = Disabled
+@REM ÔÊĞí»ò½ûÖ¹ Microsoft Store Ïò×îĞÂ°æ±¾µÄ Windows Ìá¹©¸üĞÂ¡£ Value 1 = Enabled, 0 = Disabled
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "DisableOSUpgrade" /t REG_DWORD /d 1 /f
-@REM ------ Windowsæ›´æ–°å¥åº·åŒ»ç”ŸæœåŠ¡ä¸æ›´æ–°ç¼–æ’å™¨æœåŠ¡
-@REM  "Start" å€¼åŒ…æ‹¬ 0ï¼ˆå¯åŠ¨å¤±è´¥ï¼‰ã€1ï¼ˆç³»ç»Ÿå¯åŠ¨æ—¶è‡ªåŠ¨å¯åŠ¨ï¼‰ã€2ï¼ˆæ‰‹åŠ¨å¯åŠ¨ï¼‰å’Œ 3ï¼ˆç¦ç”¨ï¼‰ï¼Œè€Œ 4 è¡¨ç¤ºæœåŠ¡ä¸ä¼šè¢«å¯åŠ¨ï¼Œå¦‚æœæœåŠ¡å·²ç»åœ¨è¿è¡Œï¼Œåˆ™ä¼šè¢«åœæ­¢ã€‚
-@REM è¯¥æœåŠ¡ä¸»è¦ç”¨äºæ£€æŸ¥ Windows æ›´æ–°çš„å¥åº·çŠ¶å†µï¼Œä»¥ç¡®ä¿ç³»ç»Ÿèƒ½å¤ŸåŠæ—¶æ¥æ”¶åˆ°æœ€æ–°çš„å®‰å…¨å’ŒåŠŸèƒ½æ›´æ–°ï¼Œå¹¶å°†å…¶å€¼è®¾ç½®ä¸º 4 (ç¦æ­¢è¿è¡Œè¯¥æœåŠ¡)ã€‚
-@REM æ›´æ–°ç¼–æ’å™¨æœåŠ¡ï¼Œå…³é—­
+@REM ------ Windows¸üĞÂ½¡¿µÒ½Éú·şÎñÓë¸üĞÂ±àÅÅÆ÷·şÎñ
+@REM  "Start" Öµ°üÀ¨ 0£¨Æô¶¯Ê§°Ü£©¡¢1£¨ÏµÍ³Æô¶¯Ê±×Ô¶¯Æô¶¯£©¡¢2£¨ÊÖ¶¯Æô¶¯£©ºÍ 3£¨½ûÓÃ£©£¬¶ø 4 ±íÊ¾·şÎñ²»»á±»Æô¶¯£¬Èç¹û·şÎñÒÑ¾­ÔÚÔËĞĞ£¬Ôò»á±»Í£Ö¹¡£
+@REM ¸Ã·şÎñÖ÷ÒªÓÃÓÚ¼ì²é Windows ¸üĞÂµÄ½¡¿µ×´¿ö£¬ÒÔÈ·±£ÏµÍ³ÄÜ¹»¼°Ê±½ÓÊÕµ½×îĞÂµÄ°²È«ºÍ¹¦ÄÜ¸üĞÂ£¬²¢½«ÆäÖµÉèÖÃÎª 4 (½ûÖ¹ÔËĞĞ¸Ã·şÎñ)¡£
+@REM ¸üĞÂ±àÅÅÆ÷·şÎñ£¬¹Ø±Õ
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WaaSMedicSvc" /v "Start" /t REG_DWORD /d 4 /f
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UsoSvc" /v "Start" /t REG_DWORD /d 4 /f
-@REM ------ Windowsæ›´æ–°å¥åº·åŒ»ç”ŸæœåŠ¡ä¸æ›´æ–°ç¼–æ’å™¨æœåŠ¡
-@REM ---- win7 å‡çº§æç¤ºé€šæ€
-@REM å…³é—­ã€Šè·å–Windows10ã€‹å‡çº§é€šçŸ¥ https://www.jb51.net/os/windows/418707.html
+@REM ------ Windows¸üĞÂ½¡¿µÒ½Éú·şÎñÓë¸üĞÂ±àÅÅÆ÷·şÎñ
+@REM ---- win7 Éı¼¶ÌáÊ¾Í¨É±
+@REM ¹Ø±Õ¡¶»ñÈ¡Windows10¡·Éı¼¶Í¨Öª https://www.jb51.net/os/windows/418707.html
 REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\WindowsUpdate\OSUpgrade" /v "ReservationsAllowed" /t REG_DWORD /d 0 /f
 @REM https://serverfault.com/questions/695916/registry-key-gpo-to-disable-and-block-windows-10-upgrade
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Gwx" /v "DisableGwx" /t REG_DWORD /d 1 /f
-@REM Windows 7ç¦ç”¨â€œ PCä¸æ”¯æŒâ€å¼¹å‡ºçª—å£ https://blog.csdn.net/allway2/article/details/103905502
+@REM Windows 7½ûÓÃ¡° PC²»Ö§³Ö¡±µ¯³ö´°¿Ú https://blog.csdn.net/allway2/article/details/103905502
 REG ADD "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\EOSNotify" /v "DiscontinueEOS" /t REG_DWORD /d 1 /f
-@REM ---- win7 å‡çº§æç¤ºé€šæ€
-@REM å¯åŠ¨ Windows Update æœåŠ¡
+@REM ---- win7 Éı¼¶ÌáÊ¾Í¨É±
+@REM Æô¶¯ Windows Update ·şÎñ
 net start wuauserv
-:: å½»åº•å…³é—­Windowsæ›´æ–°
+:: ³¹µ×¹Ø±ÕWindows¸üĞÂ
 pause
